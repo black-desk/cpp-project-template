@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+cd $SCRIPT_DIR
+
+echo "Set your project name: "
+ok=false
+while : ; do
+read name
+if [[ "$name" =~ ^[a-zA-Z](_?[a-zA-Z])*$ ]] ; then
+    break
+else
+    echo "Project name should be a string contain only letters and '_', and shouldn't start or end with '_'"
+fi
+done
+
+grep -rli 'a' * | xargs -i@ sed -i "s/\[\[\[project_name\]\]\]/$name/g" @
+
+mv include/\[\[\[project_name\]\]\] include/$name
+mv lib/\[\[\[project_name\]\]\].cpp lib/"$name".cpp
+
+rm $SCRIPT_DIR/runme
