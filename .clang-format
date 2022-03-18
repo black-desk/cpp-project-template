@@ -8,7 +8,7 @@ AlignConsecutiveBitFields: AcrossComments
 AlignConsecutiveDeclarations: AcrossComments
 AlignConsecutiveMacros: AcrossComments
 AlignEscapedNewlines: Right
-AlignOperands: AlignAfterOperator
+AlignOperands: Align
 AlignTrailingComments: true
 AllowAllArgumentsOnNextLine: true
 AllowAllConstructorInitializersOnNextLine: true
@@ -48,7 +48,7 @@ BraceWrapping:
   SplitEmptyRecord: true
   SplitEmptyNamespace: true
 BreakAfterJavaFieldAnnotations: false
-BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeBinaryOperators: None
 BreakBeforeBraces: Custom
 BreakBeforeConceptDeclarations: true
 BreakBeforeTernaryOperators: false
@@ -71,10 +71,14 @@ EmptyLineBeforeAccessModifier: Never
 FixNamespaceComments: true
 # ForEachMacros: ['RANGES_FOR', 'FOREACH']
 IncludeBlocks: Regroup
-# IncludeCategories: 
+IncludeCategories:
+  - Regex: '^<.*>'
+    Priority: 1
+  - Regex: '^".*"'
+    Priority: 2
 # IncludeIsMainRegex: 
 # IncludeIsMainSourceRegex: 
-IndentAccessModifiers: true
+IndentAccessModifiers: false
 IndentCaseBlocks: false
 IndentCaseLabels: true
 IndentExternBlock: Indent
