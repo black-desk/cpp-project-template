@@ -14,6 +14,7 @@ dep_list = {
   'nlohmann_json': 'nlohmann_json_dep',
   'spdlog': 'spdlog_dep',
 }
+
 deps = []
 foreach dep_name, var_name: dep_list
   d = dependency(dep_name, required : false)

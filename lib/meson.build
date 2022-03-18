@@ -1,6 +1,6 @@
-src = [
+src = files(
   '[[[project_name]]].cpp',
-]
+)
 
 lib[[[project_name]]] = library(
   '[[[project_name]]]',

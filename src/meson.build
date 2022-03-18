@@ -1,6 +1,6 @@
-src = [
+src = files(
   'main.cpp',
-]
+)
 
 exe = executable(
   '[[[project_name]]]',
